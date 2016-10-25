@@ -43,7 +43,7 @@ import com.ge.dspmicro.machinegateway.types.PEnvelope;
 import com.ge.predix.solsvc.workshop.config.JsonDataNode;
 import com.ge.predix.solsvc.workshop.types.WorkshopDataSubscription;
 import com.ge.predix.solsvc.workshop.types.WorkshopSubscriptionListener;
-import com.ge.predix.solsvc.workshop.types.WorskshopDataNodeIntel;
+import com.ge.predix.solsvc.workshop.types.WorkshopDataNodeIntel;
 
 import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
@@ -132,7 +132,7 @@ public class IntelBoardSubscriptionMachineAdapter
     private Dictionary<String, Object>        props;
     private MachineAdapterInfo                adapterInfo;
     private MachineAdapterState               adapterState;
-    private Map<UUID, WorskshopDataNodeIntel>         dataNodes           = new HashMap<UUID, WorskshopDataNodeIntel>();
+    private Map<UUID, WorkshopDataNodeIntel>         dataNodes           = new HashMap<UUID, WorkshopDataNodeIntel>();
 
     private int                               updateInterval;
 
@@ -332,7 +332,7 @@ public class IntelBoardSubscriptionMachineAdapter
     {
         PDataValue pDataValue = new PDataValue(nodeId);
         float fvalue = 0.0f;
-    	WorskshopDataNodeIntel node = this.dataNodes.get(nodeId);
+    	WorkshopDataNodeIntel node = this.dataNodes.get(nodeId);
     	switch (node.getNodeType()) {
     		case "Light": //$NON-NLS-1$
     			fvalue = node.getLightNode().value();
@@ -512,7 +512,7 @@ public class IntelBoardSubscriptionMachineAdapter
     {
         for (JsonDataNode jsonNode:nodes)
         {
-                WorskshopDataNodeIntel node = new WorskshopDataNodeIntel(this.uuid, jsonNode.getNodeName(),jsonNode.getNodeType(),jsonNode.getNodePin());
+                WorkshopDataNodeIntel node = new WorkshopDataNodeIntel(this.uuid, jsonNode.getNodeName(),jsonNode.getNodeType(),jsonNode.getNodePin());
 	            // Create a new node and put it in the cache.
 	            this.dataNodes.put(node.getNodeId(), node);
             

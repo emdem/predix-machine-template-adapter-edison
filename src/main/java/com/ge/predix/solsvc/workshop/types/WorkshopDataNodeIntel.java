@@ -24,7 +24,7 @@ import mraa.Gpio;
  * 
  * @author Predix Machine Sample
  */
-public class WorskshopDataNodeIntel extends PDataNode
+public class WorkshopDataNodeIntel extends PDataNode
 {
     
     /**
@@ -33,7 +33,7 @@ public class WorskshopDataNodeIntel extends PDataNode
      * @param nodeType - 
      * @param nodePin -
 	 */
-	public WorskshopDataNodeIntel(UUID machineAdapterId, String name,String nodeType,long nodePin) {
+	public WorkshopDataNodeIntel(UUID machineAdapterId, String name,String nodeType,long nodePin) {
 		super(machineAdapterId, name);
 		this.nodeType = nodeType;
 		this.nodePin = nodePin;
